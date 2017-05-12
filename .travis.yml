@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+  - 6
+
+services:
+  - docker
+
+after_success:
+  - docker login --email=_ --username=_ --password=$(echo $_API_KEY) registry.heroku.com
+  - docker build -t registry.heroku.com/frontend-test/web .
+  - docker push registry.heroku.com/frontend-test/web
