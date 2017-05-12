@@ -8,6 +8,9 @@ services:
 
 install: true
 
+script:
+  - echo "your build here"
+
 after_success:
   - docker login --email=_ --username=_ --password=$(echo $_API_KEY) registry.heroku.com
   - docker build -t registry.heroku.com/frontend-test/web .
