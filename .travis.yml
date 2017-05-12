@@ -6,8 +6,7 @@ node_js:
 services:
   - docker
 
-install:
-  - echo "deploy"
+install: true
 
 after_success:
   - docker login --email=_ --username=_ --password=$(echo $_API_KEY) registry.heroku.com
